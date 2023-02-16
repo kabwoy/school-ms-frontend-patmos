@@ -3,9 +3,10 @@
 export default {
 
  created() {
-  const token = localStorage.getItem('token')
+  const token = JSON.parse(localStorage.getItem('token'))
   if(!token) return this.$store.state.isLoggedIn = false
-  this.$store.state.token = token
+  this.$store.state.token = token.token
+  this.$store.state.role = token.role
   this.$store.state.isLoggedIn = true
  },
  mounted() {

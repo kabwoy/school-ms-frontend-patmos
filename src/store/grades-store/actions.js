@@ -1,9 +1,9 @@
 export default {
 
     async fetchGrades(context){
-
+        const token = JSON.parse(localStorage.getItem('token')).token
         const response = await fetch('http://localhost:3000/grades' , {headers:{
-            'Authorization':`Bearer ${localStorage.getItem('token')}`
+            'Authorization':`Bearer ${token}`
             }})
         const data = await response.json();
 

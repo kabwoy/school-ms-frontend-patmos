@@ -1,9 +1,9 @@
 export default {
 
     async fetchStudents(context){
-
+        const token = JSON.parse(localStorage.getItem('token')).token
         const response = await fetch('http://localhost:3000/students' , {headers:{
-            'Authorization':`Bearer ${localStorage.getItem('token')}`
+            'Authorization':`Bearer ${token}`
             }})
         const data = await response.json();
 
@@ -12,10 +12,11 @@ export default {
 
     },
     async createStudents(context , payload){
+        const token = JSON.parse(localStorage.getItem('token')).token
         console.log(JSON.stringify(payload))
         const response = await fetch('http://localhost:3000/students' , {headers:{
                 'Content-Type':'application/json',
-                'Authorization':`Bearer ${localStorage.getItem('token')}`
+                'Authorization':`Bearer ${token}`
             } , method:'POST' , body:JSON.stringify(payload)})
 
         // if(!response.ok){

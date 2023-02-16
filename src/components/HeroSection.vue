@@ -1,19 +1,51 @@
 <template>
     <div class="header-description mh-100 vw-100  bg-dark">
-        <h1 class="text-white px-4">Welcome To Patmos Montisorry primary</h1>
+
+<!--    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">-->
+<!--        <div class="carousel-inner">-->
+<!--            <div class="carousel-item active">-->
+<!--                <img src="http://www.build-africa.org/sites/default/files/build-a-school_9.jpg" class="d-block w-100" alt="...">-->
+<!--                <div class="carousel-caption  d-md-block">-->
+<!--                    <h1>Welcome To Patmos</h1>-->
+<!--                    <OurMotto/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="carousel-item">-->
+<!--                <img src="https://i.pinimg.com/originals/a7/4c/ab/a74cab43a1ea87f851754dc7a917be2e.png" class="d-block w-100" alt="...">-->
+<!--            </div>-->
+<!--            <div class="carousel-item">-->
+<!--                <img src="https://media.istockphoto.com/id/183368584/photo/school-in-juba-southern-sudan.jpg?s=612x612&w=0&k=20&c=zIvxawK_38rSnJFJ3pNbS3OvnL1w-5yIQLgIN1Tcn50=" class="d-block w-100" alt="...">-->
+<!--                <div class="carousel-caption  d-md-block">-->
+<!--                    <h5>First slide label</h5>-->
+<!--                    <p>Some representative placeholder content for the first slide.</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">-->
+<!--            <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--            <span class="visually-hidden">Previous</span>-->
+<!--        </button>-->
+<!--        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">-->
+<!--            <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--            <span class="visually-hidden">Next</span>-->
+<!--        </button>-->
+<!--    </div>-->
+        <h1 class="text-white px-4">Welcome To <span class="anime">Patmos Montisorry primary</span></h1>
         <div class="description">
             <p>We give the best education quality across the sub sahara of east africa.join us tody
                 inorder to shape the future of your child.foward ever backward never,
                 Lorem ipsum dolor sit amet consectetur adipisicing epraesentium fugit, nihil.
             </p>
-            <a href="" class="btn btn-warning mx-4">Register With Us</a>
+            <a href="mailto:test@gmail.com" class="btn btn-warning mx-4">Contact Us</a>
         </div>
     </div>
 </template>
 
 <script>
+    import OurMotto from "./OurMotto.vue";
     export default {
-        name: "HeroSection"
+        name: "HeroSection",
+        components: {OurMotto}
     }
 </script>
 
@@ -49,6 +81,21 @@
             white-space: normal;
 
         }
+        .carousel{
+            margin-top: 2rem;
+            height: auto;
+            font-size: 19px;
+
+        }
+        .carousel-item{
+            position: relative;
+        }
+         .carousel-caption{
+
+            position: absolute;
+             top: 0;
+
+        }
         .btn{
 
             text-align: center;
@@ -66,5 +113,19 @@
         }
 
     }
+    .carousel{
+        z-index: -1;
+    }
+    .carousel .carousel-item{
+        width: 100vw;
+        max-height: 50rem ;
+
+
+    }
+    .carousel-caption{
+        margin-bottom: 15rem;
+    }
+
+
 
 </style>

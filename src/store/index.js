@@ -2,19 +2,21 @@ import {createStore} from 'vuex'
 import ParentModule from './parent-store/base'
 import GradeModule from './grades-store/base'
 import StudentModule from './students-store/base'
+import ParentAuth from './parent-auth-store/base'
 
-const store = createStore( { modules:{ParentModule , GradeModule , StudentModule },
+const store = createStore( { modules:{ParentModule , GradeModule , StudentModule , ParentAuth },
 
     state(){
         return{
             token:'',
             isLoggedIn:false,
+            role:'',
             serverSideError:null
         }
     },
     mutations:{
         setToken(state , payload){
-            localStorage.setItem('token' , payload.token)
+            localStorage.setItem('token' , JSON.stringify(payload))
             state.token = payload.token
 
         },
@@ -25,7 +27,12 @@ const store = createStore( { modules:{ParentModule , GradeModule , StudentModule
 
             state.isLoggedIn = payload
 
+        },
+
+        setRole(state, payload){
+            state.role = payload.role
         }
+
     },
     actions:{
         async loginStaff(context , payload){
@@ -50,6 +57,9 @@ const store = createStore( { modules:{ParentModule , GradeModule , StudentModule
 
             return state.token
 
+        },
+        getRole(state){
+            return state.role
         }
     }
 

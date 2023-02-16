@@ -4,7 +4,7 @@
             <h3>Student Registration</h3>
             <div class="nav-links">
                 <a href=""><i class="bi bi-house-check"></i>Home</a>
-                <a href=""><i class="bi bi-person-fill-add"></i>Students List</a>
+                <router-link to="/dash/students"><i class="bi bi-person-fill-add"></i>Students List</router-link>
             </div>
         </nav>
     </div>
@@ -91,9 +91,15 @@
               }
 
               this.$store.dispatch('createStudents' , studentBody)
-              const err = this.$store.state.GradeModule.serverErr
 
-              console.log(err)
+              this.first_name=''
+              this.last_name=''
+              this.dob=''
+              this.class_name=''
+              this.parent=''
+              this.grade=''
+
+
 
           }
         },

@@ -6,6 +6,7 @@
             <span class="mx-2"><i class="fa-brands fa-instagram"></i> Follow Us On : <a href="">Instagram</a> </span>
             <span class="mx-2"><i class="fa-regular fa-envelope"></i> Email: <a href="mailto:pm@gmail.com"> pm@gmail.com</a>  </span>
             <span class="mx-2"><i class="fa-regular fa-phone-rotary"></i>Call Us On 075345343</span>
+
         </footer>
     </div>
 </template>

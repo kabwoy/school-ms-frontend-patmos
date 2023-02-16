@@ -19,12 +19,12 @@
             <td>{{parent.contact}}</td>
             <td>{{parent.id_number}}</td>
             <td>{{parent.address}}</td>
-            <td><div class="btn-group"><a class="btn btn-outline-primary" href=""><i class="bi bi-pen"></i> Edit</a> <a class="btn btn-outline-danger" href=""><i class="bi bi-trash2"></i> Delete</a> </div></td>
+            <td><div class="btn-group"><a class="btn btn-outline-primary" @click="updateParent(parent.id)"><i class="bi bi-pen"></i> Edit</a> <a class="btn btn-outline-danger"  @click="deleteParent(parent.id)"><i class="bi bi-trash2"></i> Delete</a> </div></td>
         </tr>
         </tbody>
     </table>
     </div>
-    {{getAllParents.length}}
+    {{id}}
 </template>
 
 <script>
@@ -32,6 +32,24 @@
     export default {
         name: "ParentList",
         components: {SubNav},
+        data(){
+            return{
+                baseUrl:'/dash/parents/edit/'
+            }
+        },
+        props:['id'],
+        methods:{
+          updateParent(id){
+              this.$router.push({path:`/dash/parents/edit/${id}`})
+          },
+            async deleteParent(id){
+              const token = JSON.parse(localStorage.getItem('token')).token
+              const response = await fetch(`http://localhost:3000/parents/${id}` , {headers:{'Authorization':`Bearer ${token} `, 'Content-Type': 'application/json'},
+              method:'DELETE'})
+                const data = await response.json()
+                location.reload()
+            }
+        },
         computed:{
           getAllParents(){
               return this.$store.getters.getParentList

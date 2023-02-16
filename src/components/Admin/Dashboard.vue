@@ -31,9 +31,10 @@
         name: "DashBoard",
         components: {NavBar, Parent},
         beforeRouteEnter(to , from , next){
-
-            if(!localStorage.getItem('token')){
-                alert('You Have To login first')
+            const token = JSON.parse(localStorage.getItem('token'))
+            // console.log(res)
+            if(!token || token.role !== 'Admin'){
+                alert('You Have To login first and be an admin to access')
                 return next('/login')
 
                 // this.$router.push({path:"/login"})
@@ -54,6 +55,9 @@
             }
 
         },
+        created() {
+            this.$store.dispatch('fetchParents')
+        }
 
     }
 </script>

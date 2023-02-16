@@ -12,9 +12,15 @@
                         <li class="nav-item">
 <!--                            <a class="nav-link active" aria-current="page" href="#">Home</a>-->
                             <router-link class="nav-link " to="/">Home</router-link>
+
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Portal</a>
+                            <!--                            <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+                            <router-link class="nav-link " to="/about-us">About Us</router-link>
+
+                        </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/portal/login">Portal</router-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dash">DashBoard</a>
@@ -58,4 +64,5 @@
         color: #fff;
         padding: 24px;
     }
+
 </style>
