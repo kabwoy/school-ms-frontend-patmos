@@ -7,9 +7,11 @@ import App from './App.vue'
 import Footer from "./components/Footer.vue";
 import router from "./routes/router.js";
 import store from "./store";
+import ErrorAlert from "./components/ErrorAlert.vue";
 
 const app = createApp(App)
     app.use(router)
     app.use(store)
     app.component('Footer' , Footer)
+    app.component('ErrorAlert' , ErrorAlert)
     app.mount('#app')

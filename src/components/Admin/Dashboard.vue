@@ -3,10 +3,12 @@
     <div class="custom-container">
         <nav class="navigation">
             <ul class="nav-group">
-                <li class="nav-item"><a  href="" class="fw-bold"><i class="bi bi-house-add"></i>Dashboard</a></li>
-                <li class="nav-item"> <router-link to="/dash/students/new"  ><i class="bi bi-person-bounding-box" ></i>Students</router-link></li>
-                <li class="nav-item"> <a  href=""><i class="bi bi-book"></i>Subjects</a></li>
-                <li class="nav-item"> <a  href=""><i class="bi bi-mortarboard"></i>Grades </a></li>
+                <li class="nav-item"><router-link  to="/dash/home" class="fw-bold"><i class="bi bi-house-add"></i>Dashboard</router-link></li>
+                <li class="nav-item"> <router-link to="/dash/students"  ><i class="bi bi-person-bounding-box"></i>Students</router-link></li>
+                <li class="nav-item"> <router-link  to="/dash/subjects"><i class="bi bi-book"></i>Subjects</router-link></li>
+                <li class="nav-item"> <router-link  to="/dash/exams/new"><i class="bi bi-file-text"></i>Exams</router-link></li>
+                <li class="nav-item"> <router-link  to="/dash/exam-marks/new"><i class="bi bi-pen"></i>Exams Entry</router-link></li>
+                <li class="nav-item"><router-link to="/dash/grades" class="bi bi-mortarboard">Grades</router-link></li>
                 <li class="nav-item"> <router-link to="/dash/parent/new" ><i class="bi bi-person"></i>Parent</router-link></li>
                 <li class="nav-item">  <a href="" class="position-relative"> <i class="fa-sharp fa-solid fa-person-chalkboard"></i> <span class="badge badge-primary ">soon</span> Teachers</a></li>
             </ul>
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-    import Parent from "./Parent.vue";
+    import Parent from "./Parents/Parent.vue";
     import NavBar from "../NavBar.vue";
     export default {
         name: "DashBoard",
@@ -43,8 +45,6 @@
 
             }
             next()
-
-
         },
 
         computed:{
@@ -56,7 +56,12 @@
 
         },
         created() {
+            this.$store.dispatch('fetchClasses')
             this.$store.dispatch('fetchParents')
+            this.$store.dispatch('fetchSubjects')
+            this.$store.dispatch('fetchStudents')
+            this.$store.dispatch('fetchGrades')
+            this.$store.dispatch('fetchExam')
         }
 
     }
@@ -80,6 +85,7 @@
         /*margin:auto;*/
         /*background-color: #f66262;*/
     }
+
 .flex-itm2{
 
     background-color: blue;
@@ -122,7 +128,8 @@
         margin-right: .13rem;
         font-size: 1.3rem;
     }
-    .nav-group>li a:hover{
+    .nav-group>li a:hover,
+    a.router-link-active{
         color: #51cf66;
         border-left: 4px solid  #51cf66;
 

@@ -4,7 +4,7 @@
 
         <div class="offcanvas offcanvas-start bg-dark text-white" data-bs-scroll="true" data-bs-backdrop="static" id="staticBackdrop" tabindex="-1">
             <div class="offcanvas-header text-center">
-                <h5 class="offcanvas-title " id="staticBackdropLabel">Welcome Name</h5>
+                <h5 class="offcanvas-title " id="staticBackdropLabel">Welcome {{getFirstName}}</h5>
                 <button type="button btn-close" class="btn-close bg-white"  data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
@@ -28,7 +28,13 @@
 
 <script>
     export default {
-        name: "OffCanvas"
+        name: "OffCanvas",
+        computed:{
+            getFirstName(){
+                const fname = JSON.parse(localStorage.getItem('user')).first_name
+                return fname
+            }
+        }
     }
 </script>
 

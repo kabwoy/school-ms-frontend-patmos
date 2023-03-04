@@ -28,7 +28,7 @@
 </template>
 
 <script>
-    import SubNav from "./SubNav.vue";
+    import SubNav from "../SubNav.vue";
     export default {
         name: "ParentList",
         components: {SubNav},

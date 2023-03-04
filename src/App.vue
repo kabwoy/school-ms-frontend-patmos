@@ -9,7 +9,8 @@ export default {
   this.$store.state.role = token.role
   this.$store.state.isLoggedIn = true
  },
- mounted() {
+ async mounted() {
+   const grades = await this.$store.dispatch('fetchGrades')
 
  }
 

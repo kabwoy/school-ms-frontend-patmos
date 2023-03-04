@@ -30,5 +30,21 @@
 </script>
 
 <style scoped>
+section{
+    animation-name: mission;
+    animation-duration: 2s;
+}
+    @keyframes mission {
 
+        0%{
+            opacity:0;
+            transform: translateX(-100px);
+
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    }
 </style>

@@ -76,7 +76,7 @@
             if(!response.ok) return alert(data.message)
             this.profileDetails.push(data)
             this.students = data.student
-            console.log(this.profileDetails)
+            // console.log(this.profileDetails)
 
         }
     }

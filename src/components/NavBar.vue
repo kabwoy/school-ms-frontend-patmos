@@ -1,6 +1,7 @@
 <template>
     <header class="">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed fixed-top"
+             style="background-color: #8a8b1e!important; ">
             <div class="container-fluid">
 <!--                <a class="navbar-brand" href="#">Patmos</a>-->
                 <router-link class="navbar-brand " to="/">Patmos Pri</router-link>
@@ -8,7 +9,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold" style="color: #ffffff">
                         <li class="nav-item">
 <!--                            <a class="nav-link active" aria-current="page" href="#">Home</a>-->
                             <router-link class="nav-link " to="/">Home</router-link>
@@ -19,11 +20,14 @@
                             <router-link class="nav-link " to="/about-us">About Us</router-link>
 
                         </li>
-                        <li class="nav-item">
-                            <router-link class="nav-link" to="/portal/login">Portal</router-link>
+                        <li class="nav-item  ml-2">
+                            <router-link  class="nav-link " to="/contact">Contact Us</router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dash">DashBoard</a>
+                            <router-link class="nav-link" to="/profile">Portal</router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/dash/home">DashBoard</router-link>
                         </li>
 
                     </ul>
@@ -33,6 +37,7 @@
                             <router-link v-if="!$store.state.isLoggedIn" class="nav-link " to="/login">Login</router-link>
                             <a v-else style="cursor: pointer; margin-right: .025rem"  class="nav-link mr-2 " @click="logout" ><i class="bi bi-box-arrow-right"></i>Logout</a>
                         </li>
+
                     </ul>
                 </div>
             </div>

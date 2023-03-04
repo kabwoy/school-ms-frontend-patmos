@@ -1,5 +1,5 @@
 <template>
-    <div class="header-description mh-100 vw-100  bg-dark">
+    <div class="header-description mh-100 vw-100  ">
 
 <!--    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">-->
 <!--        <div class="carousel-inner">-->
@@ -30,13 +30,13 @@
 <!--            <span class="visually-hidden">Next</span>-->
 <!--        </button>-->
 <!--    </div>-->
-        <h1 class="text-white px-4">Welcome To <span class="anime">Patmos Montisorry primary</span></h1>
+        <h1 class="text-white px-4 fw-bolder heading-primary" style="letter-spacing: 2px; text-transform: uppercase;">Welcome To Patmos Montisorry primary</h1>
         <div class="description">
-            <p>We give the best education quality across the sub sahara of east africa.join us tody
+            <p class="heading-secondary">We give the best education quality across the sub sahara of east africa.join us tody
                 inorder to shape the future of your child.foward ever backward never,
                 Lorem ipsum dolor sit amet consectetur adipisicing epraesentium fugit, nihil.
             </p>
-            <a href="mailto:test@gmail.com" class="btn btn-warning mx-4">Contact Us</a>
+            <router-link to="/contact" class="btn btn-warning mx-4">Contact Us</router-link>
         </div>
     </div>
 </template>
@@ -53,7 +53,72 @@
     @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
     .header-description{
         padding: 160px;
+        background-color: #8a8b1e;
         background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fms-my.facebook.com%2Fpages%2Fcategory%2FSchool%2FPatmos-Montessori-School-Uthiru-613692795819360%2F&psig=AOvVaw393FjUBQMqesdyR3kopD88&ust=1675537770760000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCMikveGG-vwCFQAAAAAdAAAAABAb");
+    }
+    .heading-primary{
+        animation-name: moveFromLeft;
+        animation-duration: 3s;
+    }
+    .heading-secondary{
+        animation-name: moveFromRight;
+        animation-duration: 3s;
+    }
+    @keyframes moveFromLeft {
+
+        0%{
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        80%{
+
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+    }
+    @keyframes moveFromRight {
+        0%{
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+    }
+    .btn{
+        transition: all .2s ease-in;
+        position: relative;
+    }
+    .btn::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        border-radius: 10px;
+        background-color: #ffc107;
+        top: 0;
+        left: 0;
+        transition: all .2s;
+        z-index: -1;
+
+    }
+    .btn:hover{
+
+        transform: translateY(-5px);
+        box-shadow: 0 5px 10px #3d3d3d;
+
+
+    }
+    .btn:hover::after{
+        transform: scaleX(1.5);
+        opacity: 0;
     }
     @media (max-width: 480px) {
         .header-description{
@@ -65,6 +130,7 @@
             justify-content: center;
             display: inline-block;
             padding-right: 24px;
+
             /* font-size: 0px; */
         }
         .header-description h1{

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-    import SubNav from "./SubNav.vue";
+    import SubNav from "../SubNav.vue";
     export default {
         name: "UpdateParent",
         components: {SubNav},

@@ -5,7 +5,7 @@
             <span class="mx-2"><i class="fa-brands fa-twitter"></i>  Follow Us On : <a href="">Twitter</a> </span>
             <span class="mx-2"><i class="fa-brands fa-instagram"></i> Follow Us On : <a href="">Instagram</a> </span>
             <span class="mx-2"><i class="fa-regular fa-envelope"></i> Email: <a href="mailto:pm@gmail.com"> pm@gmail.com</a>  </span>
-            <span class="mx-2"><i class="fa-regular fa-phone-rotary"></i>Call Us On 075345343</span>
+            <span class="mx-2"><i class="bi bi-telephone"></i>Call Us On 075345343</span>
 
         </footer>
     </div>
@@ -37,9 +37,9 @@
 
     @media (max-width: 480px) {
         .footer-container{
-            padding: 32px;
-            height: 12em;
-            margin-top: 1em;
+            padding: 42px;
+            height: 14em;
+            margin-top: 2em;
 
         }
         .footer-container > footer > span {

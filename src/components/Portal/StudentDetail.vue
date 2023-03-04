@@ -10,23 +10,19 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Subject Name</th>
+                <th scope="col">Status</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr v-for="sub of subjects">
+                <td>{{sub.subject_name}}</td>
+                <td>{{sub.status}}</td>
             </tr>
-
             </tbody>
         </table>
     </div>
+
 </template>
 
 <script>
@@ -40,20 +36,38 @@
             return{
 
                 student:{},
-                grade:{}
+                grade:{},
+                subjects:[]
             }
 
         },
+        methods:{
+        },
+        computed:{
+
+        },
+        async created() {
+
+        },
+
 
         async mounted() {
+            this.$store.dispatch('fetchGrades')
             const id = this.$route.params.id
             const token = JSON.parse(localStorage.getItem('user')).token
             const response = await fetch(`http://localhost:3000/profile/student/${id}` , {headers:{'Content-Type':'application/json','Authorization':`Bearer ${token}`}})
             const data = await response.json()
-
             this.student = data
             this.grade = data.grade
-            console.log(this.grade)
+
+            // fetch subjects
+
+            const gradeId = this.grade.id
+            const userToken = JSON.parse(localStorage.getItem('user')).token
+            const res = await fetch(`http://localhost:3000/grades/${gradeId}` ,{headers:{'Content-Type':'application/json','Authorization':`Bearer ${userToken} `}} )
+            const subData = await res.json()
+            if(!response.ok) return alert(subData.message)
+            this.subjects = subData.subject
 
         }
     }

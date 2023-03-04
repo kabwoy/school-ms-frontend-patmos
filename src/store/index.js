@@ -3,8 +3,22 @@ import ParentModule from './parent-store/base'
 import GradeModule from './grades-store/base'
 import StudentModule from './students-store/base'
 import ParentAuth from './parent-auth-store/base'
+import SubjectModule from './subject-store/base'
+import ExamModule from './exam-store/base'
+import ExamEntry from './exam-entry-store/base'
+import ClassesModule from './classes-store/base'
 
-const store = createStore( { modules:{ParentModule , GradeModule , StudentModule , ParentAuth },
+const store = createStore( {
+    modules:{
+        ParentModule ,
+        GradeModule ,
+        StudentModule ,
+        ParentAuth ,
+        SubjectModule ,
+        ExamModule,
+        ExamEntry,
+        ClassesModule,
+    },
 
     state(){
         return{
